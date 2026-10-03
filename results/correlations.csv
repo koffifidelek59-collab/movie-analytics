@@ -1,0 +1,8 @@
+Pair,n,Spearman rho,p-value,Strength
+budget vs revenue,2805,0.65,0.0e+00,strong
+runtime vs vote_average,3752,0.38,7.6e-132,moderate
+runtime vs revenue,2805,0.25,8.2e-40,weak
+release_year vs vote_average,3754,-0.09,1.0e-07,negligible
+vote_count vs vote_average,3754,0.39,2.0e-133,moderate
+budget vs vote_average,2805,-0.08,3.3e-05,negligible
+vote_average vs revenue,2805,0.19,8.9e-24,weak

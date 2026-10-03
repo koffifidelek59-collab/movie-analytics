@@ -1,0 +1,19 @@
+genre,mean,count,sem
+Horror,5.657,435,0.039
+Comedy,5.953,1405,0.021
+Science Fiction,5.982,474,0.041
+Action,5.989,1010,0.026
+Fantasy,6.006,379,0.044
+Thriller,6.019,1112,0.024
+Family,6.035,431,0.041
+Adventure,6.081,687,0.032
+Mystery,6.152,299,0.043
+Romance,6.182,676,0.028
+Crime,6.249,591,0.031
+Animation,6.324,185,0.06
+Drama,6.38,1742,0.018
+Western,6.393,58,0.097
+Music,6.411,140,0.057
+History,6.554,136,0.059
+War,6.634,106,0.068
+Documentary,6.733,51,0.109

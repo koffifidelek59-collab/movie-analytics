@@ -1,0 +1,8 @@
+KPI,Value,Base,DAX
+Movies,"3,754",all matched films,COUNTROWS(movies)
+Total revenue,$369.5 bn,films with known revenue,SUM(movies[revenue])
+Total budget,$130.0 bn,films with known budget,SUM(movies[budget])
+Median ROI,2.27 x,films with known budget and revenue,MEDIAN(movies[roi])
+Profitable films,76.6%,films with known budget and revenue,see 11.3
+Average rating,6.13 / 10,all films,AVERAGE(movies[vote_average])
+Average runtime,109 min,films with known runtime,AVERAGE(movies[runtime])
