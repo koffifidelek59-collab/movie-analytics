@@ -1,0 +1,127 @@
+{
+ "name": "Blue_Night",
+ "dataColors": [
+  "#4FB3E8",
+  "#A9D6F5",
+  "#2E86C1",
+  "#1B4F72",
+  "#7FB3D5",
+  "#D6EAF8",
+  "#5DADE2",
+  "#85929E"
+ ],
+ "background": "#111923",
+ "foreground": "#FFFFFF",
+ "tableAccent": "#4FB3E8",
+ "good": "#1CE783",
+ "neutral": "#8C8C8C",
+ "bad": "#E50914",
+ "textClasses": {
+  "title": {
+   "color": "#4FB3E8",
+   "fontFace": "Segoe UI Semibold",
+   "fontSize": 12
+  },
+  "label": {
+   "color": "#FFFFFF",
+   "fontFace": "Segoe UI",
+   "fontSize": 10
+  },
+  "header": {
+   "color": "#FFFFFF",
+   "fontFace": "Segoe UI Semibold",
+   "fontSize": 12
+  },
+  "callout": {
+   "color": "#FFFFFF",
+   "fontFace": "Segoe UI Semibold",
+   "fontSize": 24
+  }
+ },
+ "visualStyles": {
+  "*": {
+   "*": {
+    "background": [
+     {
+      "show": false,
+      "transparency": 100
+     }
+    ],
+    "title": [
+     {
+      "fontColor": {
+       "solid": {
+        "color": "#4FB3E8"
+       }
+      }
+     }
+    ],
+    "categoryAxis": [
+     {
+      "labelColor": {
+       "solid": {
+        "color": "#FFFFFF"
+       }
+      },
+      "titleColor": {
+       "solid": {
+        "color": "#FFFFFF"
+       }
+      }
+     }
+    ],
+    "valueAxis": [
+     {
+      "labelColor": {
+       "solid": {
+        "color": "#FFFFFF"
+       }
+      },
+      "titleColor": {
+       "solid": {
+        "color": "#FFFFFF"
+       }
+      },
+      "gridlineColor": {
+       "solid": {
+        "color": "#2C3A4D"
+       }
+      }
+     }
+    ],
+    "legend": [
+     {
+      "labelColor": {
+       "solid": {
+        "color": "#FFFFFF"
+       }
+      }
+     }
+    ]
+   }
+  },
+  "page": {
+   "*": {
+    "background": [
+     {
+      "color": {
+       "solid": {
+        "color": "#111923"
+       }
+      },
+      "transparency": 0
+     }
+    ],
+    "outspace": [
+     {
+      "color": {
+       "solid": {
+        "color": "#111923"
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

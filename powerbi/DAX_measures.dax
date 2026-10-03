@@ -1,0 +1,103 @@
+// =====================================================================
+// Movie Analytics Dashboard (Task 10) - DAX of Movie_Analytics_Dashboard.pbit
+// Measures of the analysis live in the table Movies; the measures describing
+// the supplied file live in the table tmdb_5000_credits.
+// =====================================================================
+
+// Calculated column Movies[Weighted Rating]  (Bayesian weighted rating, IMDb formula)
+Weighted Rating =
+    VAR C = CALCULATE ( AVERAGE ( Movies[Rating] ), ALL ( Movies ) )
+    VAR m = CALCULATE ( PERCENTILE.INC ( Movies[Votes], 0.9 ), ALL ( Movies ) )
+    RETURN DIVIDE ( Movies[Votes], Movies[Votes] + m ) * Movies[Rating] + DIVIDE ( m, Movies[Votes] + m ) * C
+
+// ---------------- table Movies
+
+Total Movies =
+    DISTINCTCOUNT ( Movies[Movie ID] )
+    // format: #,0
+
+Total Revenue ($bn) =
+    DIVIDE ( SUM ( Movies[Revenue] ), 1e9 )
+    // format: \$#,0.0" bn"
+
+Total Budget ($bn) =
+    DIVIDE ( SUM ( Movies[Budget] ), 1e9 )
+    // format: \$#,0.0" bn"
+
+Total Profit ($bn) =
+    DIVIDE ( SUM ( Movies[Profit] ), 1e9 )
+    // format: \$#,0.0" bn"
+
+Revenue ($M) =
+    DIVIDE ( SUM ( Movies[Revenue] ), 1e6 )
+    // format: \$#,0" M"
+
+Budget ($M) =
+    DIVIDE ( SUM ( Movies[Budget] ), 1e6 )
+    // format: \$#,0" M"
+
+Median Revenue ($M) =
+    DIVIDE ( MEDIAN ( Movies[Revenue] ), 1e6 )
+    // format: \$#,0" M"
+
+Median Revenue Adj ($M) =
+    DIVIDE ( MEDIAN ( Movies[Revenue Adj] ), 1e6 )
+    // format: \$#,0" M"
+
+Median ROI =
+    MEDIAN ( Movies[ROI] )
+    // format: 0.00"x"
+
+Avg Rating =
+    AVERAGE ( Movies[Rating] )
+    // format: 0.00
+
+Avg Runtime (min) =
+    AVERAGE ( Movies[Runtime] )
+    // format: 0
+
+Weighted Score =
+    AVERAGE ( Movies[Weighted Rating] )
+    // format: 0.00
+
+Total Votes =
+    SUM ( Movies[Votes] )
+    // format: #,0
+
+Director Score (3+ films) =
+    IF ( [Total Movies] >= 3, [Weighted Score] )
+    // format: 0.00
+
+Median Revenue Adj ($M) 20+ =
+    IF ( [Total Movies] >= 20, [Median Revenue Adj ($M)] )
+    // format: \$#,0" M"
+
+Avg Rating 20+ =
+    IF ( [Total Movies] >= 20, [Avg Rating] )
+    // format: 0.00
+
+% Profitable =
+    DIVIDE ( CALCULATE ( [Total Movies], Movies[Result] = "Profitable" ), CALCULATE ( [Total Movies], Movies[Result] <> "Unknown" ) )
+    // format: 0.0%
+
+// ---------------- table tmdb_5000_credits
+
+Films in Supplied File =
+    COUNTROWS ( 'tmdb_5000_credits' )
+    // format: #,0
+
+Films Analysed =
+    CALCULATE ( COUNTROWS ( 'tmdb_5000_credits' ), 'tmdb_5000_credits'[In Analysis] = "Yes" )
+    // format: #,0
+
+Match Rate =
+    DIVIDE ( [Films Analysed], [Films in Supplied File] )
+    // format: 0.0%
+
+Cast Entries =
+    SUM ( 'tmdb_5000_credits'[Cast Members] )
+    // format: #,0
+
+Crew Entries =
+    SUM ( 'tmdb_5000_credits'[Crew Members] )
+    // format: #,0
