@@ -1,0 +1,19 @@
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# LaTeX build files (report.tex and report.pdf are kept)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Power BI lock files (the dashboard .pbix and template .pbit are kept)
+~$*
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
